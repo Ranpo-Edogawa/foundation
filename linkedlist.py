@@ -96,3 +96,41 @@
 
 
 
+
+
+
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def reverseList(self, head):
+        head = self.append_linkedlist_to_list(head)
+        return head[::-1]
+    
+    def append_linkedlist_to_list(self, head):
+        cur_node = head
+        nums = list()
+        while cur_node:
+            nums.append(cur_node.val)
+            cur_node = cur_node.next        
+        return nums
+        
+        
+        
+        
+
+
+s = Solution()
+print(s.reverseList(ListNode(1,2)))
+        
+
+
+
+
+
+
+
+
