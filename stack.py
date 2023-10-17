@@ -1,74 +1,133 @@
-class Node:
-    def __init__(self, data) -> None:
-        self.data = data
-        self.next = None
+import numbers
 
 
-class Stack:
-    def __init__(self) -> None:
-        self.head = None
+# class Node:
 
-    def push(self, newNode):
-        if self.head is None:
-            self.head = newNode
+#     def __init__(self, data) -> None:
+#         self.data = data
+#         self.next = None
 
-        else:
-            last_node = self.head
-            while True:
-                if last_node.next is None:
-                    break
-                last_node = last_node.next
-            last_node.next = newNode
 
-    def pop(self):
-        cur_node = self.head
+# class Stack:
+#     def __init__(self) -> None:
+#         self.head = None
+
+#     def push(self, newNode):
+#         if self.head is None:
+#             self.head = newNode
+
+#         else:
+#             last_node = self.head
+#             while True:
+#                 if last_node.next is None:
+#                     break
+#                 last_node = last_node.next
+#             last_node.next = newNode
+
+#     def pop(self):
+#         cur_node = self.head
     
-        while cur_node.next:
-            prev_node = cur_node
-            cur_node = cur_node.next
+#         while cur_node.next:
+#             prev_node = cur_node
+#             cur_node = cur_node.next
            
-        prev_node.next = None
+#         prev_node.next = None
         
-    def Peek(self):
-        cur_node = self.head
+#     def Peek(self):
+#         cur_node = self.head
     
-        while cur_node.next:
-            prev_node = cur_node
-            cur_node = cur_node.next
+#         while cur_node.next:
+#             prev_node = cur_node
+#             cur_node = cur_node.next
            
-        return prev_node.next
+#         return prev_node.next
         
             
 
         
-    def reverse(self):
-        prev = None
-        current = self.head
-        while(current is not None):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        self.head = prev
+#     def reverse(self):
+#         prev = None
+#         current = self.head
+#         while(current is not None):
+#             next = current.next
+#             current.next = prev
+#             prev = current
+#             current = next
+#         self.head = prev
         
 
-    def printList(self):
-        self.reverse()
-        temp = self.head
-        while(temp):
-            print(temp.data, end=" ")
-            temp = temp.next
-        self.reverse()
+#     def printList(self):
+#         self.reverse()
+#         temp = self.head
+#         while(temp):
+#             print(temp.data, end=" ")
+#             temp = temp.next
+#         self.reverse()
         
 
 
 
-n1 = Node('Print')
-n2 = Node('List')
-n3 = Node('Map')
+# n1 = Node('Print')
+# n2 = Node('List')
+# n3 = Node('Map')
 
-s = Stack()
-s.push(n1)
-s.push(n2)
-s.push(n3)
-s.printList()
+# s = Stack()
+# s.push(n1)
+# s.push(n2)
+# s.push(n3)
+# s.printList()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution:
+    def calPoints(self, operations: list[str]) -> int:
+        lst = []
+        for i in operations:
+            if i == 'C':
+                lst.pop()
+            elif i == 'D':
+                lst.append(2*lst[-1])
+            elif i == '+':
+                lst.append(lst[-1]+lst[-2])
+            else:
+                print(i)
+                lst.append(int(i))
+        
+        return sum(lst)
+                
+    
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
