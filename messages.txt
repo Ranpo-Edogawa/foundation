@@ -1,0 +1,4 @@
+23:09:17|Ranpo|Hi Atsushi !
+23:11:43|Atsushi|Hi Ranpo !
+23:12:03|Ranpo|What are you doing
+23:12:16|Atsushi|Nothing

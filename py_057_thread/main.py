@@ -1,6 +1,8 @@
 import sys
 from threading import Thread
 from time import sleep
+import typing
+from PyQt5 import QtCore
 
 from PyQt5.QtWidgets import (
     QApplication, 
@@ -9,10 +11,47 @@ from PyQt5.QtWidgets import (
     QHBoxLayout, 
     QLineEdit, 
     QListWidget, 
-    QPushButton
+    QPushButton,
+    QLabel
 )
 
-from py_057_thread.core import*
+from core import *
+
+
+
+
+
+
+class Another(QWidget):
+    def __init__(self) -> None:
+        super().__init__()
+        self.Init()
+        self.show()
+    
+    def Init(self):
+        self.setWindowTitle("NajotGram")
+        self.setFixedSize(500, 50)
+        
+        self.btn_ok = QPushButton(self, 'Ok')
+        self.line_enter = QLineEdit(self, 'Enter username...')
+        self.qh_box = QHBoxLayout()
+        self.qv_box = QVBoxLayout()
+        
+        self.qh_box.addWidget(self.line_enter)
+        self.qh_box.addWidget(self.btn_ok)
+        self.qv_box.addLayout(self.qh_box)
+        
+        self.setLayout(self.qv_box)
+
+    def pressed_ok(self):
+        self.close()
+        win = Chat()
+        win.show()
+    
+    def text_to(self):
+        return self.line_enter.text()
+        
+
 
 class Chat(QWidget):
     def __init__(self) -> None:
@@ -24,12 +63,13 @@ class Chat(QWidget):
         self.__initUI()
         self.__css()
         self.show()
+        
 
     def __initUI(self):
         self.vBox = QVBoxLayout()
         self.hBox = QHBoxLayout()
 
-        self.editName = QLineEdit()
+        self.LabelName = QLabel()
         self.editName.setPlaceholderText('Enter username...')
 
         self.qlwMessange = QListWidget()
