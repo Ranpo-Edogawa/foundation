@@ -233,9 +233,109 @@
 # text = to_shrift(alpha, text)
 # print(text)
 
+
+#GOOGLE
+
+# def google(num):
+#     print('G', end = '')
+#     for i in range(num):
+#         print('O', end = '')
+#     print('GLE', end = '')
+
+
+# n = int(input('n = '))
+# google(n)
+
+# def sum_digits(num):
+#     sum = 0
+#     while num > 0:
+        
+#         sum += num % 10
+        
+#         num //= 10
+        
+#     return sum
+
+
+
+# def lucky_ticket(num):
+#     num2 = str(0)*num
+#     counter = 0
+#     while len(num2) < num+1:
+#         a = int(num2[0:len(num2)//2])
+#         b = int(num2[len(num2)//2:len(num2)])
+#         if sum_digits(a) == sum_digits(b):
+#             counter += 1
+#         num2 = int(num2)+1
+#         num2 = (num - len(str(num2))) * '0' + str(num2)
+#     return counter
+        
+        
+
+
+
+# n = int(input('n = '))
+# print(lucky_ticket(n))
+        
+        
+
+
+
+# n = int(input('n = '))
+# print(lucky_ticket(n))
+
+
+
+
+
+# n = int(input('n = '))
+# lst = []
+# for i in range(n):
+#     lst.append(input())
+
+
+
+def attack(x, y, board):
+    for i in range(8):
+        for j in range(8):
+            if i == x:
+                if board[i][j] == 'Q':
+                    return True
+            if j == y:
+                if board[i][j] == 'Q':
+                    return True
+            if i == j and i+j == 
+
+
+
+
+def check_attack(board):
+    for i in range(8):
+        for j in range(8):
+            if board[i][j] != '.':
+                if attack(i, j, board):
+                    return True
     
+    return False
 
 
+def mark_queen(lst, board):
+    for i in range(8):
+        for j in range(8):
+            if int(lst[i][0]) == i+1 and int(lst[i][1]) == j+1:
+                board[i][j] = 'Q'
+    return board
+
+
+
+board = [['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.']]
+lst = []
+# for i in range(8):
+#     lst.append(input())
+lst = ['1 7', '2 4', '3 2', '4 8', '5 6', '6 1', '7 3', '8 5']
+lst = list(map(lambda x: x.split(), lst))
+
+board = mark_queen(lst, board)
 
 
 
