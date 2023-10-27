@@ -298,16 +298,18 @@
 def attack(x, y, board):
     for i in range(8):
         for j in range(8):
+            if x == i and y == j:
+                continue
             if i == x:
                 if board[i][j] == 'Q':
                     return True
             if j == y:
                 if board[i][j] == 'Q':
                     return True
-            if i == j and i+j == 
-
-
-
+            if abs(i - x) == abs(j - y):
+                if board[i][j] == 'Q':
+                    return True
+    return False
 
 def check_attack(board):
     for i in range(8):
@@ -318,24 +320,22 @@ def check_attack(board):
     
     return False
 
-
 def mark_queen(lst, board):
     for i in range(8):
         for j in range(8):
-            if int(lst[i][0]) == i+1 and int(lst[i][1]) == j+1:
+            if int(lst[i][0]) - 1 == i and int(lst[i][1]) - 1 == j:
                 board[i][j] = 'Q'
     return board
 
-
-
 board = [['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.']]
 lst = []
-# for i in range(8):
-#     lst.append(input())
-lst = ['1 7', '2 4', '3 2', '4 8', '5 6', '6 1', '7 3', '8 5']
+print("Enter the row and column of each queen from 1 to 8")
+for i in range(8):
+    lst.append(input())
 lst = list(map(lambda x: x.split(), lst))
 
 board = mark_queen(lst, board)
+print(check_attack(board))
 
 
 
