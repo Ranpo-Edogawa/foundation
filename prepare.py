@@ -295,48 +295,82 @@
 
 
 
-def attack(x, y, board):
-    for i in range(8):
-        for j in range(8):
-            if x == i and y == j:
-                continue
-            if i == x:
-                if board[i][j] == 'Q':
-                    return True
-            if j == y:
-                if board[i][j] == 'Q':
-                    return True
-            if abs(i - x) == abs(j - y):
-                if board[i][j] == 'Q':
-                    return True
-    return False
+# def attack(x, y, board):
+#     for i in range(8):
+#         for j in range(8):
+#             if x == i and y == j:
+#                 continue
+#             if i == x:
+#                 if board[i][j] == 'Q':
+#                     return True
+#             if j == y:
+#                 if board[i][j] == 'Q':
+#                     return True
+#             if abs(i - x) == abs(j - y):
+#                 if board[i][j] == 'Q':
+#                     return True
+#     return False
 
-def check_attack(board):
-    for i in range(8):
-        for j in range(8):
-            if board[i][j] != '.':
-                if attack(i, j, board):
-                    return True
+# def check_attack(board):
+#     for i in range(8):
+#         for j in range(8):
+#             if board[i][j] != '.':
+#                 if attack(i, j, board):
+#                     return True
     
-    return False
+#     return False
 
-def mark_queen(lst, board):
-    for i in range(8):
-        for j in range(8):
-            if int(lst[i][0]) - 1 == i and int(lst[i][1]) - 1 == j:
-                board[i][j] = 'Q'
-    return board
+# def mark_queen(lst, board):
+#     for i in range(8):
+#         for j in range(8):
+#             if int(lst[i][0]) - 1 == i and int(lst[i][1]) - 1 == j:
+#                 board[i][j] = 'Q'
+#     return board
 
-board = [['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.']]
-lst = []
-print("Enter the row and column of each queen from 1 to 8")
-for i in range(8):
-    lst.append(input())
-lst = list(map(lambda x: x.split(), lst))
+# board = [['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.'],['.', '.', '.', '.', '.', '.', '.', '.']]
+# lst = []
+# print("Enter the row and column of each queen from 1 to 8")
+# for i in range(8):
+#     lst.append(input())
+# lst = list(map(lambda x: x.split(), lst))
 
-board = mark_queen(lst, board)
-print(check_attack(board))
-
-
+# board = mark_queen(lst, board)
+# print(check_attack(board))
 
 
+
+
+
+
+
+
+# a = 82 
+# b = 12
+# print((a+b)//2+abs(a-b)//2)
+
+# def roman_to_int(roman_numeral):
+#     roman_values = {
+#         'I': 1,
+#         'V': 5,
+#         'X': 10,
+#         'L': 50,
+#         'C': 100,
+#         'D': 500,
+#         'M': 1000
+#     }
+
+#     num = 0
+#     prev_value = 0
+
+#     for i in range(len(roman_numeral) - 1, -1, -1):
+#         if roman_values[roman_numeral[i]] >= prev_value:
+#             num += roman_values[roman_numeral[i]]
+#         else:
+#             num -= roman_values[roman_numeral[i]]
+#         prev_value = roman_values[roman_numeral[i]]
+
+#     return num
+
+# roman_numeral = input("Rim raqamida son kiritng: ")
+# decimal_num = roman_to_int(roman_numeral)
+# print("O'nlik sanoq sistemasida:", decimal_num)
